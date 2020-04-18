@@ -164,6 +164,9 @@ class InterventionListResource(AuthenticationRequiredResource):
                     figures = intervention_collection['figures'],
                     description = intervention_collection['description'],
                     donor = intervention_collection['donor'],
+                    state = intervention_collection['state'],
+                    lat = intervention_collection['lat'],
+                    longitiude = intervention_collection['longitiude'],
                     intervention_category = category
                 )
             intervention.add(intervention)
@@ -267,6 +270,15 @@ class BeneficiaryListResource(AuthenticationRequiredResource):
             return response, HttpStatus.bad_request_400.value
 
 
+class StateIntervention(AuthenticationRequiredResource):
+    def get(self,state):
+        state = Intervention.query.get_or_404(state)
+        state_intervention = Intervention.query.filter_by(state=state).all()
+        if state_intervention is None:
+            response = {'error':'There are no interventions in this {}'.format(state)}
+            return response, HttpStatus.bad_request_400.value
+        
+        return jsonify(state_intervention), HttpStatus.created_200.value
 
 
 
@@ -277,3 +289,4 @@ tracker.add_resource(InterventionListResource,'/intervention/')
 tracker.add_resource(InterventionResource,'/intervention/<int:id>')
 tracker.add_resource(BeneficiaryListResource,'/beneficiary/')
 tracker.add_resource(BeneficiaryResource,'/beneficiary/<int:id>')
+tracker.add_resource(StateIntervention,'/state/<state:state>')

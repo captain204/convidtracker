@@ -72,14 +72,20 @@ class Intervention(db.Model,ResourceAddUpdateDelete):
     figures = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(250), unique=True, nullable=False)
     donor = db.Column(db.String(250), nullable=False)
+    state = db.Column(db.String(250), nullable=False)
+    lat = db.Column(db.String(100), nullable=False)
+    longitiude = db.Column(db.String(100), nullable=False)
     intervention_category_id = db.Column(db.Integer, db.ForeignKey('intervention_category.id', ondelete='CASCADE'), nullable=False)
     intervention_category = db.relationship('InterventionCategory', backref=db.backref('interventions', lazy='dynamic' , order_by='Intervention.description'))
     creation_date = db.Column(db.TIMESTAMP, server_default=db.func.current_timestamp(), nullable=False)
 
-    def __init__(self, figures, description, donor, intervention_category):
+    def __init__(self, figures, description, donor,state,lat,longitiude,intervention_category):
         self.figures = figures
         self.description = description
         self.donor = donor
+        self.state = state
+        self.lat = lat
+        self.longitiude = longitiude
         self.intervention_category = intervention_category
 
 
