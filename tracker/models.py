@@ -191,10 +191,10 @@ class Beneficiary(db.Model,ResourceAddUpdateDelete):
     creation_date = db.Column(db.TIMESTAMP, server_default=db.func.current_timestamp(), nullable=False)
 
 
-    def __init__(self, name, phone, state, lga, ward, intervention_type, age, education, gender):
+    def __init__(self, name, phone, states, lga, ward, intervention_type, age, education, gender):
         self.name = name
         self.phone = phone
-        self.state = state
+        self.states = states
         self.lga = lga
         self.ward = ward
         self.intervention_type = intervention_type
@@ -222,7 +222,7 @@ class BeneficiarySchema(ma.Schema):
         validate=validate.Length(3))
     phone = fields.String(required=True, 
         validate=validate.Length(11))
-    state = fields.String(required=True, 
+    states = fields.String(required=True, 
         validate=validate.Length(3))
     lga = fields.String(required=True, 
         validate=validate.Length(3))
