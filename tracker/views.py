@@ -270,7 +270,7 @@ class BeneficiaryListResource(AuthenticationRequiredResource):
             return response, HttpStatus.bad_request_400.value
 
 
-class StateIntervention(AuthenticationRequiredResource):
+"""class StateIntervention(AuthenticationRequiredResource):
     def get(self,state):
         #state = Intervention.query.get_or_404(state)
         state_intervention = Intervention.query.filter_by(state=state).all()
@@ -278,7 +278,7 @@ class StateIntervention(AuthenticationRequiredResource):
             response = {'error':'There are no interventions in this {}'.format(state)}
             return response, HttpStatus.bad_request_400.value
         
-        return jsonify(state_intervention), HttpStatus.created_200.value
+        return jsonify(state_intervention), HttpStatus.created_200.value"""
 
 
 
