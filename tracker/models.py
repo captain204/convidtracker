@@ -181,7 +181,7 @@ class Beneficiary(db.Model,ResourceAddUpdateDelete):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), nullable=False)
     phone = db.Column(db.String(250), unique=True, nullable=False)
-    state = db.Column(db.String(250), nullable=False)
+    states = db.Column(db.String(250), nullable=False)
     lga = db.Column(db.String(250), nullable=False)
     ward = db.Column(db.String(250), nullable=False)
     intervention_type = db.Column(db.String(250), nullable=False)
