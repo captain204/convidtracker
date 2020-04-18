@@ -181,7 +181,7 @@ class Beneficiary(db.Model,ResourceAddUpdateDelete):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), nullable=False)
     phone = db.Column(db.String(250), unique=True, nullable=False)
-    states = db.Column(db.String(250), nullable=False)
+    state = db.Column(db.String(250), nullable=False)
     lga = db.Column(db.String(250), nullable=False)
     ward = db.Column(db.String(250), nullable=False)
     intervention_type = db.Column(db.String(250), nullable=False)
@@ -191,10 +191,10 @@ class Beneficiary(db.Model,ResourceAddUpdateDelete):
     creation_date = db.Column(db.TIMESTAMP, server_default=db.func.current_timestamp(), nullable=False)
 
 
-    def __init__(self, name, phone, states, lga, ward, intervention_type, age, education, gender):
+    def __init__(self, name, phone, state, lga, ward, intervention_type, age, education, gender):
         self.name = name
         self.phone = phone
-        self.states = states
+        self.state = state
         self.lga = lga
         self.ward = ward
         self.intervention_type = intervention_type

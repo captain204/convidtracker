@@ -273,7 +273,7 @@ class BeneficiaryListResource(AuthenticationRequiredResource):
 class StateIntervention(AuthenticationRequiredResource):
     def get(self,state):
         #state = Intervention.query.get_or_404(state)
-        state_intervention = Intervention.query.filter_by(states=state).all()
+        state_intervention = Intervention.query.filter_by(state=state).all()
         if state_intervention is None:
             response = {'error':'There are no interventions in this {}'.format(state)}
             return response, HttpStatus.bad_request_400.value
