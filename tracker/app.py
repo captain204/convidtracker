@@ -1,8 +1,8 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from models import db
-from views import tracker_blueprint
+from tracker.models import db
+from tracker.views import tracker_blueprint
 
 def create_app(config_filename):
     app = Flask(__name__, instance_relative_config=True)
