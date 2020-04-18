@@ -146,6 +146,12 @@ class InterventionSchema(ma.Schema):
         validate=validate.Length(3))
     donor= fields.String(required=True, 
         validate=validate.Length(3))
+    state= fields.String(required=True, 
+        validate=validate.Length(3))
+    lat = fields.String(required=True, 
+        validate=validate.Length(1))
+    longitiude = fields.String(required=True, 
+        validate=validate.Length(1))
     intervention_category = fields.Nested(InterventionCategorySchema, 
         only=['id', 'url', 'name'], 
         required=True)
