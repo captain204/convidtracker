@@ -22,7 +22,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=250), nullable=False),
     sa.Column('phone', sa.String(length=250), nullable=False),
-    sa.Column('state', sa.String(length=250), nullable=False),
+    sa.Column('states', sa.String(length=250), nullable=False),
     sa.Column('lga', sa.String(length=250), nullable=False),
     sa.Column('ward', sa.String(length=250), nullable=False),
     sa.Column('intervention_type', sa.String(length=250), nullable=False),
