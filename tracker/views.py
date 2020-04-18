@@ -1,12 +1,12 @@
 from flask import Blueprint, request, jsonify, make_response
 from flask_restful import Api, Resource
-from http_status import HttpStatus
-from models import db,Intervention,InterventionCategory,InterventionSchema,InterventionCategorySchema,Beneficiary,BeneficiarySchema
+from tracker.http_status import HttpStatus
+from tracker.models import db,Intervention,InterventionCategory,InterventionSchema,InterventionCategorySchema,Beneficiary,BeneficiarySchema
 from sqlalchemy.exc import SQLAlchemyError
-from helpers import PaginationHelper
+from tracker.helpers import PaginationHelper
 from flask_httpauth import HTTPBasicAuth
 from flask import g
-from models import User, UserSchema
+from tracker.models import User, UserSchema
 
 auth = HTTPBasicAuth()
 
